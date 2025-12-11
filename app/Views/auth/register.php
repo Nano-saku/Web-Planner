@@ -231,7 +231,7 @@
         </form>
 
         <div class="link">
-            Already have an account? <a href="login.php">Sign in</a>
+            Already have an account? <a href="login">Sign in</a>
         </div>
     </div>
     <script src = 'public\js\register.js'></script>

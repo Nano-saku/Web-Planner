@@ -2,7 +2,11 @@
 session_start();
 require_once __DIR__ . '/../app/Controllers/AuthControll.php';
 $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
-$uri = preg_replace('#public/#', '', $uri);
+
+if ($uri === ''){
+    header('Location: /register');
+    exit;
+}
 
 $Authcontroll = new Authenticator;
 

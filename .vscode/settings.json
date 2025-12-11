@@ -1,0 +1,4 @@
+{
+  "phpserver.relativePath": "public",
+  "phpserver.router": "public/index.php"
+}

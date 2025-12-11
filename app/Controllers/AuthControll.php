@@ -4,11 +4,11 @@ require_once __DIR__ . '/../../core/firebase.php';
 class Authenticator {
 
     public function showLogin() {
-        require __DIR__ . '/../../Views/auth/login.php';
+        require __DIR__ . '/../Views/auth/login.php';
     }
 
     public function showRegister() {
-        require __DIR__ . '/../../Views/auth/register.php';
+        require __DIR__ . '/../Views/auth/register.php';
     }
 
     public function store() {

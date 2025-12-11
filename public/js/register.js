@@ -9,7 +9,7 @@ function validate() {
     conf.style.borderColor = "#fb0000ff";
     return false;
   } else {
-    conf.style.borederColor = "#f4f4f4ff";
+    conf.style.borderColor = "#f4f4f4ff";
     return true;
   }
 }
@@ -18,8 +18,10 @@ conf.addEventListener("input", validate);
 password.addEventListener("input", validate);
 
 form.addEventListener("submit", function (e) {
-  if (validate()) {
+  if (!validate()) {
     e.preventDefault();
     alert("Password do Not Match");
+    header("Location: /register");
+    exit;
   }
 });

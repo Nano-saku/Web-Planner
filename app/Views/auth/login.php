@@ -197,7 +197,7 @@
                 </div>
             </div>
 
-            <form action="<?= url('login/attempt') ?>" method="POST">
+            <form action='login/attempt' method="POST">
                 <div class="form-group">
                     <label><i class="fas fa-envelope"></i> Email</label>
                     <input type="email" name="email" required placeholder="your.email@dssc.edu.ph">
@@ -206,22 +206,13 @@
                     <label><i class="fas fa-lock"></i> Password</label>
                     <input type="password" name="password" required placeholder="Enter your password">
                 </div>
-                <div class="form-group">
-                    <label><i class="fas fa-user-tag"></i> Role</label>
-                    <select name="role" required>
-                        <option value="">Select your role</option>
-                        <option value="0">Student</option>
-                        <option value="1">Teacher</option>
-                        <option value="2">Admin</option>
-                    </select>
-                </div>
                 <button type="submit" class="btn btn-primary">
                     <i class="fas fa-sign-in-alt"></i> Sign In
                 </button>
             </form>
 
             <div class="link">
-                Don't have an account? <a href="register.php">Register here</a>
+                Don't have an account? <a href="register">Register here</a>
             </div>
         </div>
     </div>
