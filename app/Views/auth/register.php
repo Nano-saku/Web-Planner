@@ -171,7 +171,7 @@
             <div class="grid">
                 <div class="form-group">
                     <label><i class="fas fa-id-card"></i> Student ID</label>
-                    <input type="text" id="studentId" name=g'studentId'required placeholder="ex: 23-12345">
+                    <input type="text" id="studentId" name='studentId' required placeholder="ex: 20XX-12345">
                 </div>
 
                 <div class="form-group">
