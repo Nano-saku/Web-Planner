@@ -1,0 +1,12 @@
+# dependencies
+/vendor/
+
+# runtime / env secrets
+*.lock
+serviceAccount.json
+.env
+.DS_Store
+
+# IDE
+.vscode/*
+!.vscode/settings.json
