@@ -12,6 +12,13 @@ class Authenticator {
     }
 
     public function store() {
+
+        if($_POST['password'] !== $_POST['confrimPassword']){
+            $_SESSION['error'] = "Password does not match";
+            header("Location: /register");
+            exit();
+        }
+
         $firebase = new FirebaseService();
         $db = $firebase->db();
         $auth = $firebase->auth();
