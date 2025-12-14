@@ -15,6 +15,14 @@ class Authenticator {
         require __DIR__ . '/../Views/dash/student/dashboard.php';
     }
 
+    public function showTdash(){
+        require __DIR__ . '/../Views/dash/teacher/dashboard.php';
+    }
+
+    public function showAdash(){
+        require __DIR__ . '/../Views/dash/admin/dashboard.php';
+    }
+
     public function store() {
         $firebase = new FirebaseService();
         $db = $firebase->db();
@@ -46,7 +54,7 @@ class Authenticator {
             'name' => $name,
             'age' => $age,
             'address' => $address,
-            'role' => '0',
+            'role' => 0,
         ]);
 
         $_SESSION['success'] = "Registration Complete.";
@@ -70,14 +78,23 @@ class Authenticator {
         try {
             $user = $auth->signInWithEmailAndPassword($email, $password);
             $uid = $user->firebaseUserId();
-
             $snapshot = $db->getReference("users/{$uid}")->getValue();
-            $_SESSION['uid'] = $uid;
-            $_SESSION['role'] = $snapshot['role'];
 
-            if ($snapshot['role'] == 0) header("Location: /student/dashboard");
-            if ($snapshot['role'] == 1) header("Location: /teacher/dashboard");
-            if ($snapshot['role'] == 2) header("Location: /admin/dashboard");
+            $_SESSION['uid'] = $uid;
+            $_SESSION['role'] = (int) $snapshot['role'];
+
+            if ($snapshot['role'] == 0) {
+                header("Location: /student/dashboard");
+                exit;
+        }
+            if ($snapshot['role'] == 1) {
+                header("Location: /teacher/dashboard");
+                exit;
+        }
+            if ($snapshot['role'] == 2) {
+                header("Location: /admin/dashboard");
+                exit;
+        }
 
         } catch (Exception $e) {
             $_SESSION['error'] = 'Login Failed: ' . $e ->getMessage();
