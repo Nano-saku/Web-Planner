@@ -11,51 +11,51 @@ class Authenticator {
         require __DIR__ . '/../Views/auth/register.php';
     }
 
+    public function showSdash(){
+        require __DIR__ . '/../Views/dash/student/dashboard.php';
+    }
+
     public function store() {
-
-        if($_POST['password'] !== $_POST['confrimPassword']){
-            $_SESSION['error'] = "Password does not match";
-            header("Location: /register");
-            exit;
-        }
-
         $firebase = new FirebaseService();
         $db = $firebase->db();
         $auth = $firebase->auth();
 
-        $first = $_POST['firstName'];
-        $middle = $_POST['middleName'];
-        $last = $_POST['lastName'];
-
-        $course = $_POST['course'];
-        $year = $_POST['year'];
         
-        $studid = $_POST['studentId'];
-        $cy = trim($course .' ' . $year);
+        $age = $_POST['age'];
+        $address = $_POST['address'];
+      //  $course = $_POST['course'];
+      //  $year = $_POST['year'];
+        
+     //   $studid = $_POST['studentId'];
+     //   $cy = trim($course .' ' . $year);
         $email = $_POST['email'];
-        $name = $first . ($middle ? ' ' . $middle : '') . ' ' . $last;
+        $name = $_POST['fullname'];
         $password = $_POST['password'];
-
+      
         try {
         $user = $auth->createUser([
             'email' => $email,
             'password' => $password,
         ]);
-
         $uid = $user->uid;
+      
 
+         
         $db->getReference("users/$uid")->set([
             'name' => $name,
-            'studentId' => $studid,
-            'courseyear' => $cy,
+            // 'studentId' => $studid,
+           // 'courseyear' => $cy,
+            'age' => $age,
+            'address' => $address,
             'role' => '0',
         ]);
 
         $_SESSION['success'] = "Registration Complete.";
         header("Location: /login");
+    
     }catch (Exception $e){
-        $_SESSION['error'] = 'Registration failed: ' . $e->getMessage();
-        header("Location: /register");
+    $_SESSION['error'] = 'Registration failed: ' . $e ->getMessage();
+      header("Location: /register");
         exit;
     }
     }
@@ -81,7 +81,7 @@ class Authenticator {
             if ($snapshot['role'] == 2) header("Location: /admin/dashboard");
 
         } catch (Exception $e) {
-            $_SESSION['error'] = 'Invalid Login Credentials';
+            $_SESSION['error'] = 'Login Failed: ' . $e ->getMessage();
             header("Location: /login");
             exit;
         }
