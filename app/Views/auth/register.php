@@ -425,7 +425,7 @@
                     <div class="form-section active" id="section1">
                         <div class="form-group">
                             <label><i class="fas fa-user"></i> Full Name</label>
-                            <input type="text" id="fullName" name='fullname' required placeholder="Enter your full name">
+                            <input type="text" id="fullname" name='fullname' required placeholder="Enter your full name">
                         </div>
                         <div class="form-group">
                             <label><i class="fas fa-birthday-cake"></i> Age</label>

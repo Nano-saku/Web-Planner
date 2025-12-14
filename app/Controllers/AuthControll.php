@@ -19,15 +19,14 @@ class Authenticator {
         $firebase = new FirebaseService();
         $db = $firebase->db();
         $auth = $firebase->auth();
-
-        
-        $age = $_POST['age'];
-        $address = $_POST['address'];
-      //  $course = $_POST['course'];
+//  $course = $_POST['course'];
       //  $year = $_POST['year'];
         
      //   $studid = $_POST['studentId'];
      //   $cy = trim($course .' ' . $year);
+        
+        $age = $_POST['age'];
+        $address = $_POST['address'];
         $email = $_POST['email'];
         $name = $_POST['fullname'];
         $password = $_POST['password'];
@@ -40,11 +39,11 @@ class Authenticator {
         $uid = $user->uid;
       
 
+            // 'studentId' => $studid,
+           // 'courseyear' => $cy,
          
         $db->getReference("users/$uid")->set([
             'name' => $name,
-            // 'studentId' => $studid,
-           // 'courseyear' => $cy,
             'age' => $age,
             'address' => $address,
             'role' => '0',

@@ -19,7 +19,10 @@ if ($uri === 'login'){
     $Authcontroll->showRegister();
 }elseif ($uri === 'register/attempt' && $_SERVER['REQUEST_METHOD'] == 'POST'){
     $Authcontroll->store();
+}elseif ($uri === 'student/dashboard' && $_SESSION['role'] ?? '' === 0) {
+    $Authcontroll -> showSdash();
 }
+
 else{
     echo "404 not found";
 }
