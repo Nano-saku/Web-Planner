@@ -16,7 +16,7 @@ class Authenticator {
         if($_POST['password'] !== $_POST['confrimPassword']){
             $_SESSION['error'] = "Password does not match";
             header("Location: /register");
-            exit();
+            exit;
         }
 
         $firebase = new FirebaseService();
