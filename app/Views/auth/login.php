@@ -366,7 +366,7 @@
                         <label><i class="fas fa-lock"></i> Password</label>
                         <div class="password-wrapper">
                             <input type="password" id="loginPassword" name= 'password' required placeholder="Enter your password">
-                            <i class="fas fa-eye-slash password-toggle" id="togglePassword"></i>
+                            <i class="fas fa-eye-slash password-toggle" onclick="togglePassword('loginPassword',this)"></i>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">

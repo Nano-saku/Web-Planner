@@ -1,9 +1,4 @@
-<?php
-if (($_SESSION['role'] ?? -1) !== 2) {   // 0 1 2 depending on file
-    header('Location: /login');
-    exit;
-}
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
