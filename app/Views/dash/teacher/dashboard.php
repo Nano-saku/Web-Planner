@@ -568,7 +568,7 @@
             <div class="user-info">
                 <div class="user-avatar">TC</div>
                 <div class="user-details">
-                    <h3>Mr. John Smith</h3>
+                    <h3>Mrs. Mae Ann</h3>
                     <p>Computer Science Teacher</p>
                 </div>
             </div>
@@ -1265,7 +1265,7 @@
         function logout() {
             if (confirm('Are you sure you want to logout?')) {
                 sessionStorage.clear();
-                window.location.href = 'login.html';
+                window.location.href = '/login';
             }
         }
 

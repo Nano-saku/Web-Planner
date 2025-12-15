@@ -87,10 +87,12 @@ class Authenticator {
                 header("Location: /student/dashboard");
                 exit;
         }
+        
             if ($snapshot['role'] == 1) {
                 header("Location: /teacher/dashboard");
                 exit;
         }
+        
             if ($snapshot['role'] == 2) {
                 header("Location: /admin/dashboard");
                 exit;
